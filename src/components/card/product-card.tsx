@@ -138,7 +138,13 @@ const SingleProductCard = ({ product }: { product: Product }) => {
   );
 };
 
-export const ProductCard = () => {
+export const ProductCard = ({
+  search,
+  selectedCategory,
+}: {
+  search: string;
+  selectedCategory: string;
+}) => {
   const { products, loading, error } = useProducts();
 
   if (loading) return <LoadingSkeleton />;
@@ -155,10 +161,18 @@ export const ProductCard = () => {
       </Stack>
     );
 
-  // Pastikan products adalah array dan memiliki nilai
-  const productList = Array.isArray(products) ? products : [];
+  // Filter products based on selected category and search query
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory = selectedCategory
+      ? product.category === selectedCategory
+      : true;
+    const matchesSearch = search
+      ? product.name.toLowerCase().includes(search.toLowerCase())
+      : true;
+    return matchesCategory && matchesSearch;
+  });
 
-  if (!productList.length)
+  if (!filteredProducts.length)
     return (
       <Stack w="full" p={8}>
         <Text color="gray.500" fontSize="lg">
@@ -179,7 +193,7 @@ export const ProductCard = () => {
       w="full"
       p={4}
     >
-      {productList.map((product) => (
+      {filteredProducts.map((product) => (
         <SingleProductCard key={product.id} product={product} />
       ))}
     </Grid>

@@ -5,7 +5,7 @@ import {
   useUpdateCart,
 } from "../services/cart/hooks";
 import { getCartResponse } from "../services/cart/types";
-import CartCard from "../components/card/cart-card";
+import { CartCard } from "../components/card/cart-card";
 
 const CartPage = () => {
   const { carts, loading, error } = useGetCarts();

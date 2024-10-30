@@ -10,7 +10,11 @@ interface CartCardProps {
 
 // console.log(CartCardProps);
 
-const CartCard: React.FC<CartCardProps> = ({ cart, onUpdate, onDelete }) => {
+export const CartCard: React.FC<CartCardProps> = ({
+  cart,
+  onUpdate,
+  onDelete,
+}) => {
   return (
     <Stack
       w="full"
@@ -78,5 +82,3 @@ const CartCard: React.FC<CartCardProps> = ({ cart, onUpdate, onDelete }) => {
     </Stack>
   );
 };
-
-export default CartCard;
