@@ -12,6 +12,7 @@ import { Product } from "../../services/products/types";
 import { Alert } from "../ui/alert";
 import { useState } from "react";
 import { useCreateCart } from "../../services/cart/hooks";
+import { useNavigate } from "react-router-dom";
 
 const LoadingSkeleton = () => (
   <Grid
@@ -50,6 +51,8 @@ const SingleProductCard = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(0);
   const { createCart, loading, error } = useCreateCart();
 
+  const navigate = useNavigate();
+
   const handleAddToCart = async () => {
     if (quantity === 0) {
       // Show alert if quantity is 0
@@ -68,6 +71,10 @@ const SingleProductCard = ({ product }: { product: Product }) => {
 
   if (loading) return <LoadingSkeleton />;
 
+  const handleGoToDetails = () => {
+    navigate(`/detail/${product.id}`);
+  };
+
   return (
     <Stack
       w="full"
@@ -85,9 +92,16 @@ const SingleProductCard = ({ product }: { product: Product }) => {
         h="200px"
         w="full"
         objectFit="cover"
+        onClick={handleGoToDetails}
       />
       <Stack p={4} gap={2} w="full" alignItems="flex-start">
-        <Text fontSize="xl" fontWeight="bold" color="blue.600" isTruncated>
+        <Text
+          fontSize="xl"
+          fontWeight="bold"
+          color="blue.600"
+          isTruncated
+          onClick={handleGoToDetails}
+        >
           {product.name}
         </Text>
         <Text
