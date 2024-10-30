@@ -1,13 +1,15 @@
 import { Box, Icon, IconButton, Input, Stack } from "@chakra-ui/react";
 import { Search, ShoppingCart } from "lucide-react";
 import { useState } from "react";
-
-const handleCardButton = () => {
-  console.log("ini cart button");
-};
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleCardButton = () => {
+    navigate("/cart");
+  };
 
   return (
     <Stack
