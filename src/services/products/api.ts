@@ -10,7 +10,7 @@ import {
 
 console.log(api);
 
-const PRODUCTS_URL = `http://localhost:5000/products`;
+const PRODUCTS_URL = `https://tht01-be.vercel.app/products`;
 
 export const productApi = {
   // Get all products
