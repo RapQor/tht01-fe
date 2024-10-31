@@ -1,5 +1,4 @@
 import axios, { AxiosError } from "axios";
-import { api } from "../../lib/api";
 import {
   Product,
   CreateProductDTO,
@@ -8,7 +7,7 @@ import {
   SingleProductResponse,
 } from "./types";
 
-const PRODUCTS_URL = `${api}/products`;
+const PRODUCTS_URL = `/api/products`;
 
 export const productApi = {
   // Get all products
