@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Cart, getCartResponse } from "./types";
 
-const API_URL = `/api/carts`;
+axios.defaults.baseURL = "https://tht01-be.vercel.app";
+
+const API_URL = `${axios.defaults.baseURL}/carts`;
 
 export const createCart = async (
   productId: number,

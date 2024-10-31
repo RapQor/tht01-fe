@@ -7,7 +7,9 @@ import {
   SingleProductResponse,
 } from "./types";
 
-const PRODUCTS_URL = `/api/products`;
+axios.defaults.baseURL = "https://tht01-be.vercel.app";
+
+const PRODUCTS_URL = `${axios.defaults.baseURL}/products`;
 
 export const productApi = {
   // Get all products
