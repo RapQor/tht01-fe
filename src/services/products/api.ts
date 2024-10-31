@@ -6,8 +6,9 @@ import {
   ProductResponse,
   SingleProductResponse,
 } from "./types";
+import { api } from "../../lib/api";
 
-const PRODUCTS_URL = `/api/products`;
+const PRODUCTS_URL = `${api}/products`;
 
 export const productApi = {
   // Get all products
