@@ -8,9 +8,7 @@ import {
   SingleProductResponse,
 } from "./types";
 
-console.log(api);
-
-const PRODUCTS_URL = `https://tht01-be.vercel.app/products`;
+const PRODUCTS_URL = `${api}//products`;
 
 export const productApi = {
   // Get all products
