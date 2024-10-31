@@ -8,8 +8,6 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://tht01-be.vercel.app",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
